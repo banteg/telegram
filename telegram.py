@@ -5,7 +5,7 @@ from functools import partial
 class TelegramApi:
 
     def __init__(self, token):
-        self.url = 'https://api.telegram.org/bot{token}/'.format_map(locals())
+        self.url = f'https://api.telegram.org/bot{token}/'
 
     def __getattr__(self, name):
         method = self.snake_to_camel(name)
