@@ -13,6 +13,7 @@ class TelegramApi:
 
     def call(self, method, **params):
         response = requests.get(self.url + method, params=params)
+        response.raise_for_status()
         return response.json()
 
     def snake_to_camel(self, text):
