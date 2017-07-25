@@ -4,7 +4,7 @@ a minimal [telegram api](https://core.telegram.org/bots/api) wrapper
 
 ## installation
 ```
-pip install git+https://github.com/banteg/telegram.git
+pip install tgb
 ```
 
 ## usage

@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='telegram',
+    name='tgb',
     version='1.0',
     description='A minimal Telegram API wrappper',
     url='https://github.com/banteg/telegram',
