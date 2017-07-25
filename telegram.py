@@ -6,13 +6,14 @@ class TelegramApi:
 
     def __init__(self, token):
         self.url = f'https://api.telegram.org/bot{token}/'
+        self.session = requests.Session()
 
     def __getattr__(self, name):
         method = self.snake_to_camel(name)
         return partial(self.call, method)
 
     def call(self, method, **params):
-        response = requests.get(self.url + method, params=params)
+        response = self.session.get(self.url + method, params=params)
         response.raise_for_status()
         return response.json()
 
