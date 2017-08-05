@@ -5,7 +5,7 @@ from functools import partial
 class TelegramApi:
 
     def __init__(self, token):
-        self.url = f'https://api.telegram.org/bot{token}/'
+        self.url = 'https://api.telegram.org/bot{}/'.format(token)
         self.session = requests.Session()
 
     def __getattr__(self, name):
