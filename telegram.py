@@ -12,8 +12,8 @@ class TelegramApi:
         method = self.snake_to_camel(name)
         return partial(self.call, method)
 
-    def call(self, method, **data):
-        response = self.session.post(self.url + method, data=data)
+    def call(self, method, files=None, **data):
+        response = self.session.post(self.url + method, files=files, data=data)
         response.raise_for_status()
         return response.json()
 
