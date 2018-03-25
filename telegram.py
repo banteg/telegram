@@ -1,5 +1,7 @@
-import requests
+import json
 from functools import partial
+
+import requests
 
 
 class TelegramApi:
@@ -13,6 +15,10 @@ class TelegramApi:
         return partial(self.call, method)
 
     def call(self, method, files=None, **data):
+        for k, v in data.items():
+            if isinstance(v, dict):
+                data[k] = json.dumps(v)
+
         response = self.session.post(self.url + method, files=files, data=data)
         response.raise_for_status()
         return response.json()
